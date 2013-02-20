@@ -7,7 +7,7 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         conn = libvirt.openReadOnly('qemu:///system')
         if conn == None:
-            print 'Failed to open connection to the hypervisor'
+            self.write('Failed to open connection to the hypervisor')
             sys.exit(1)
         for id in conn.listDefinedDomains():
             self.write(id)
