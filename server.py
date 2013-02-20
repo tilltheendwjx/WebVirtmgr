@@ -3,9 +3,12 @@ import tornado.web
 import sys
 import libvirt
 import json
+import libvirtconnection
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        conn = libvirt.openReadOnly('qemu:///system')
+        #conn = libvirt.openReadOnly('qemu:///system')
+        conn=libvirtconnection.get()
         if conn == None:
             self.write('Failed to open connection to the hypervisor')
             return

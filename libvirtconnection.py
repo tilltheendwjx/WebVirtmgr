@@ -132,7 +132,8 @@ def get(cif=None):
         return wrapper
 
     def req(credentials, user_data):
-        passwd = file(constants.P_VDSM_LIBVIRT_PASSWD).readline().rstrip("\n")
+        #passwd = file(constants.P_VDSM_LIBVIRT_PASSWD).readline().rstrip("\n")
+        passwd=constants.P_VDSM_LIBVIRT_PASSWD
         for cred in credentials:
             if cred[0] == libvirt.VIR_CRED_AUTHNAME:
                 cred[4] = constants.SASL_USERNAME
