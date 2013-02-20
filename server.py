@@ -1,6 +1,5 @@
 import tornado.ioloop
 import tornado.web
-import libvirtvm
 import sys
 import libvirt
 class MainHandler(tornado.web.RequestHandler):
